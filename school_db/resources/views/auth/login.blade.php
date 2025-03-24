@@ -44,4 +44,5 @@
             </x-primary-button>
         </div>
     </form>
+    <form action="{{ route('register') }}"><button type='submit'>Regisztráció</button></form>
 </x-guest-layout>

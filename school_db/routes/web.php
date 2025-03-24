@@ -60,4 +60,6 @@ Route::get('/subjects/create', [SubjectController::class, 'create'])->name('subj
 Route::get('/subjects', [SubjectController::class, 'index'])->name('subjects.index');
 Route::get('/subjects/{subject}', [SubjectController::class, 'show'])->name('subjects.show');
 
+Route::get('/auth/register', [ProfileController::class, 'index'])->name('register');
+
 require __DIR__.'/auth.php';
