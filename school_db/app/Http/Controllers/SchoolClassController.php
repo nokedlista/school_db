@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\SchoolClass;
+use App\Http\Requests\BasicRequest;
 
 class SchoolClassController extends Controller
 {
@@ -11,7 +12,8 @@ class SchoolClassController extends Controller
      */
     public function index()
     {
-        //
+        $school_classes = SchoolClass::all();
+        return view('school_classes.index', compact('school_classes'));
     }
 
     /**
@@ -19,15 +21,18 @@ class SchoolClassController extends Controller
      */
     public function create()
     {
-        //
+        return view('school_classes.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(BasicRequest $request)
     {
-        //
+        $school_class = new SchoolClass();
+        $school_class->create($request->all());
+
+        return redirect()->route('school_classes.index')->with('success', "Sikeresen létrehozva");
     }
 
     /**
@@ -35,7 +40,8 @@ class SchoolClassController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $school_class = SchoolClass::find($id);
+        return view('school_classes.show', compact('school_class'));
     }
 
     /**
@@ -43,15 +49,19 @@ class SchoolClassController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $school_class = SchoolClass::find($id);
+        return view('school_classes.edit', compact('school_class'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(BasicRequest $request, string $id)
     {
-        //
+        $school_class = SchoolClass::findOrFail($id);
+        $school_class->update($request->all());
+
+        return redirect()->route('school_classes.index')->with('success', "{$school_class->name} sikeresen módosítva");
     }
 
     /**
@@ -59,6 +69,9 @@ class SchoolClassController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $school_class = SchoolClass::find($id);
+        $school_class->delete();
+
+        return redirect()->route('school_classes.index')->with('success', "Sikeresen törölve");
     }
 }

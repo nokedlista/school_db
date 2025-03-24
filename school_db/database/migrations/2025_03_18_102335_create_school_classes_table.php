@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('school_classes', function (Blueprint $table) {
             $table->id();
-            $table->name();
-            $table->school_year();
+            $table->string('name');
+            $table->string('school_year');
             $table->timestamps();
         });
     }

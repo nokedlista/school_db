@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Grade;
+use App\Http\Requests\BasicRequest;
 
 class GradeController extends Controller
 {
@@ -11,7 +12,8 @@ class GradeController extends Controller
      */
     public function index()
     {
-        //
+        $grades = Grade::all();
+        return view('grades.index', compact('grades'));
     }
 
     /**
@@ -19,15 +21,18 @@ class GradeController extends Controller
      */
     public function create()
     {
-        //
+        return view('bodies.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(BasicRequest $request)
     {
-        //
+        $grade = new Grade();
+        $grade->create($request->all());
+
+        return redirect()->route('grades.index')->with('success', "Sikeresen létrehozva");
     }
 
     /**
@@ -35,7 +40,8 @@ class GradeController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $grade = Grade::find($id);
+        return view('grades.show', compact('grade'));
     }
 
     /**
@@ -43,15 +49,19 @@ class GradeController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $grade = Grade::find($id);
+        return view('grades.edit', compact('grade'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(BasicRequest $request, string $id)
     {
-        //
+        $grade = Grade::findOrFail($id);
+        $grade->update($request->all());
+
+        return redirect()->route('grades.index')->with('success', "{$grade->name} sikeresen módosítva");
     }
 
     /**
@@ -59,6 +69,9 @@ class GradeController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $grade = Grade::find($id);
+        $grade->delete();
+
+        return redirect()->route('grades.index')->with('success', "Sikeresen törölve");
     }
 }

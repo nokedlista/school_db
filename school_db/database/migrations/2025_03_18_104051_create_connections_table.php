@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('connections', function (Blueprint $table) {
-            $table->class_id();
-            $table->subject_id();
+            $table->string('class_id');
+            $table->string('subject_id');
             $table->timestamps();
         });
     }

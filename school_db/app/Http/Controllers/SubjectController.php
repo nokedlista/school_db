@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Subject;
+use App\Http\Requests\BasicRequest;
 
 class SubjectController extends Controller
 {
@@ -11,7 +12,8 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        //
+        $subjects = Subject::all();
+        return view('subjects.index', compact('subjects'));
     }
 
     /**
@@ -19,15 +21,18 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('subjects.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(BasicRequest $request)
     {
-        //
+        $subject = new Subject();
+        $subject->create($request->all());
+
+        return redirect()->route('subjects.index')->with('success', "Sikeresen létrehozva");
     }
 
     /**
@@ -35,7 +40,8 @@ class SubjectController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $subject = Subject::find($id);
+        return view('subjects.show', compact('subject'));
     }
 
     /**
@@ -43,15 +49,19 @@ class SubjectController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $subject = Subject::find($id);
+        return view('subjects.edit', compact('subject'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(BasicRequest $request, string $id)
     {
-        //
+        $subject = Subject::findOrFail($id);
+        $subject->update($request->all());
+
+        return redirect()->route('subjects.index')->with('success', "{$subject->name} sikeresen módosítva");
     }
 
     /**
@@ -59,6 +69,9 @@ class SubjectController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $subject = Subject::find($id);
+        $subject->delete();
+
+        return redirect()->route('subjects.index')->with('success', "Sikeresen törölve");
     }
 }
