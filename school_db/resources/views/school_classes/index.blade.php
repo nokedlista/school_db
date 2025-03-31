@@ -11,14 +11,14 @@
 			<div class="col">{{$school_class->name}}</div>
             <div class="col">{{$school_class->school_year}}</div>
 			<div class="right">
-				<div class="col"><a href="{{ route('school_classes.show', $school_class->id) }}"><button><i class="fa fa-binoculars" title="Mutat"></i></button></a></div>
+				<div class="col"><a href="{{ route('school_classes.show', $school_class->id) }}"><button>Mutat</button></a></div>
 				@if(auth()->check())
-					<div class="col"><a href="{{ route('school_classes.edit', $school_class->id) }}"><button><i class="fa fa-edit edit" title="Módosít"></i></button></a></div>
+					<div class="col"><a href="{{ route('school_classes.edit', $school_class->id) }}"><button>Módosít</button></a></div>
 					<div class="col">
 						<form action="{{ route('school_classes.destroy', $school_class->id) }}" method="POST">
 							@csrf
 							@method('DELETE')
-							<button type="submit" name="btn-del-school_class"><i class="fa fa-trash-can trash" title="Töröl"></i></button>
+							<button type="submit" name="btn-del-school_class">Töröl</button>
 						</form>
 					</div>
 				@endif
