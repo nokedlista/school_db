@@ -90,3 +90,102 @@ footer {
         padding: 15px;
     }
 }
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+/* Diákok listája */
+div {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Egyedi sorok */
+.row {
+    display: flex;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.row.even {
+    background-color: #f9f9f9;
+}
+
+.row.odd {
+    background-color: #ffffff;
+}
+
+/* Oszlopok */
+.col {
+    flex: 1;
+    padding: 5px;
+    text-align: center;
+}
+
+.col.id {
+    width: 10%;
+}
+
+.right {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+}
+
+/* Linkek és gombok */
+a {
+    text-decoration: none;
+}
+
+button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+/* Formok */
+form {
+    display: inline-block;
+}
+
+button[type="submit"] {
+    background-color: #f44336;
+    padding: 8px 15px;
+    color: white;
+    border-radius: 5px;
+}
+
+button[type="submit"]:hover {
+    background-color: #e53935;
+}
+
+/* Success üzenet */
+.success {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+}

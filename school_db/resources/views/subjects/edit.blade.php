@@ -1,20 +1,16 @@
 @extends('layout')
-<div>
-    <!-- Do what you can, with what you have, where you are. - Theodore Roosevelt -->
-</div>
 @section('content')
     <div>
-        <!-- Simplicity is the ultimate sophistication. - Leonardo da Vinci -->
         @include('error')
-        <form action="{{ route('bodies.update', $body->id) }}" method="post">
+        <form action="{{ route('subjects.update', $subject->id) }}" method="post">
             @csrf
             @method('PATCH')
             <fieldset>
-                <label for="name">MegnevezĂŠs</label>
-                <input type="text" id="name" name="name" required value="{{ old('name', $body->name) }}">
+                <label for="name">Tantárgy</label>
+                <input type="text" id="name" name="name" required value="{{ old('name', $subject->name) }}">
             </fieldset>
             <button type="submit">Ment</button>
-            <a href="{{ route('bodies.index') }}">MĂŠgse</a>
+            <a href="{{ route('subjects.index') }}">Mégse</a>
         </form>
     </div>
 @endsection

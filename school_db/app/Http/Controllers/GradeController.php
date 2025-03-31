@@ -21,7 +21,7 @@ class GradeController extends Controller
      */
     public function create()
     {
-        return view('bodies.create');
+        return view('grades.create');
     }
 
     /**

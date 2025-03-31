@@ -5,9 +5,9 @@
 </div>
 
 @section('content')
-    <h1>"{{ $body->name }}" karosszĂŠria</h1>
+    <h1>"{{ $subject->name }}" tantárgy</h1>
     <div class="row">
-        <div>{{ $body->id }}</div>
-        <div>{{$body->name}}</div>
+        <div>{{ $subject->id }}</div>
+        <div>{{$subject->name}}</div>
     </div>
 @endsection 

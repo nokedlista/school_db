@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<h1>KarosszĂŠriĂĄk</h1>
+<h1>Tanórák</h1>
 <div>
     @include('success')
     <a href="{{ route('school_classes.create') }}" title="Új">Osztály hozzáadása</a>
