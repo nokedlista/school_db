@@ -10,10 +10,13 @@
 
     <form action="{{route('grades.store')}}" method="post">
         @csrf
-        <fieldset>
-            <label for="subject_id">Tantárgy ID-je</label>
-            <input type="text" id="subject_id" name="subject_id">
-        </fieldset>
+        <label for="subject_ID">Tantárgy ID-je</label>
+            <select name="subject_ID" id="subject_ID">
+                <option value="">--- Válassz egy tantárgy ID-t ---</option>
+                @foreach($subjects as $subject)
+                <option value="{{ $subject->id }}">{{ $subject->id }}</option>
+                @endforeach
+            </select>
         <fieldset>
             <label for="student_id">Diák ID-je</label>
             <input type="text" id="student_id" name="student_id">

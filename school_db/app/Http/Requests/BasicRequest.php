@@ -26,15 +26,19 @@ class BasicRequest extends FormRequest
         }
         return [
             'name' => 'required|min:3|max:255',
+            'grade' => 'required|min:1|max:1'
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'Kötelező mező!',
-            'name.min' => 'Legalább 3 karakter legyen!',
-            'name.max' => 'Legfeljebb 255 karakter legyen!',
+            'name.required' => 'A név kötelező mező!',
+            'name.min' => 'A név legalább 3 karakter legyen!',
+            'name.max' => 'A név legfeljebb 255 karakter legyen!',
+            'grade.required' => 'A jegy kötelező mező!',
+            'grade.max' => 'A jegy legfeljebb 255 karakter legyen!',
+            'grade.min' => 'A jegy legalább 3 karakter legyen!',
         ];
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Grade;
+use App\Models\Subject;
 use App\Http\Requests\BasicRequest;
 
 class GradeController extends Controller
@@ -21,7 +22,8 @@ class GradeController extends Controller
      */
     public function create()
     {
-        return view('grades.create');
+        $subjects = Subject::all();
+        return view('grades.create', compact('subjects'));
     }
 
     /**

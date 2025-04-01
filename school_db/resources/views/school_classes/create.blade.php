@@ -15,7 +15,7 @@
             <input type="text" id="name" name="name">
         </fieldset>
         <fieldset>
-            <label for="school_year">Kzedési év</label>
+            <label for="school_year">Kezdési év</label>
             <input type="text" id="school_year" name="school_year">
         </fieldset>
         <button type="submit">Ment</button>
