@@ -15,9 +15,11 @@ class BodieSeeder extends Seeder
     public function run()
     {
         $items = fopen("./seeder_txt/subjects.txt", "r") or die("Unable to open file!");
-        foreach ($items as $item) {
+        while(!feof($items)) 
+        {
+            $line = fgets($items);
             $subject = new Subject();
-	        $subject->name = $item;
+	        $subject->name = $line;
             $subject->save();
         }
     }

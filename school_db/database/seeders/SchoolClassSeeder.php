@@ -14,13 +14,14 @@ class BodieSeeder extends Seeder
      */
     public function run()
     {
-        $items = fopen("./seeder_txt/school_classes.txt", "r") or die("Unable to open file!");
-        foreach ($items as $line) {
-            $schoolclass = new SchoolClass();
-            $item = explode($line, ';');
-	        $schoolclass->name = $item[0];
-            $schoolclass->school_year = $item[1];
-            $schoolclass->save();
-        }
+        // $items = fopen("./seeder_txt/school_classes.txt", "r") or die("Unable to open file!");
+        // while(!feof($items)) 
+        // {
+        //     $schoolclass = new SchoolClass();
+        //     $item = explode($line, ';');
+	    //     $schoolclass->name = $item[0];
+        //     $schoolclass->school_year = $item[1];
+        //     $schoolclass->save();
+        // }
     }
 }

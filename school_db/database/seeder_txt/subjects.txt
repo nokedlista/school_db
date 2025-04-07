@@ -8,20 +8,20 @@ Angol nyelv
 Francia nyelv
 Német nyelv
 Földrajz
-Rajz
-Testnevelés
-Zene
-Informatika
-Politikai ismeretek
-Közgazdaságtan
-Etika
-Filozófia
-Pszichológia
-Vallástudomány
-Környezetismeret
-Művészettörténet
-Kémiai technológia
-Képzőművészet
-Technika
-Agrártudományok
-Médiaismeret
+ Rajz
+ Testnevelés
+ Zene
+ Informatika
+ Politikai ismeretek
+ Közgazdaságtan
+ Etika
+ Filozófia
+ Pszichológia
+ Vallástudomány
+ Környezetismeret
+ Művészettörténet
+ Kémiai technológia
+ Képzőművészet
+ Technika
+ Agrártudományok
+ Médiaismeret

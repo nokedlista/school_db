@@ -16,14 +16,14 @@ class BodieSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 1000; $i++) {
-            $grade = new Grade();
-            $student = new Student();
-            $subject = new Subject();
-	        $grade->subject_id = $subject->
-            $grade->student_id = $item[1];
-            $grade->grade = $item[2];
-            $grade->save();
-        }
+        // for ($i = 0; $i < 1000; $i++) {
+        //     $grade = new Grade();
+        //     $student = 
+        //     $subject = new Subject();
+	    //     $grade->subject_id = $subject->
+        //     $grade->student_id = $item[1];
+        //     $grade->grade = $item[2];
+        //     $grade->save();
+        // }
     }
 }

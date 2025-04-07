@@ -15,20 +15,17 @@ class BodieSeeder extends Seeder
     public function run()
     {
         $items = fopen("./seeder_txt/students.txt", "r") or die("Unable to open file!");
-        foreach ($items as $line) {
+        $classIDs = DB::table('school_classes')->pluck('id');
+        $count = 0;
+        while(!feof($items)) 
+        {
+            $lines = fgets($items);
+            $line = explode($line, ';');
             $student = new Student();
-            $item = explode($line, ';');
-	        $student->name = $item[0];
-            $class = 0;
-            $count = 0
-            $student->class_id = $class;
+            $student->name = $line[0];
+            $student->class_id= $classIDs[$count];
+            $student->gender = $line[1];
             $count++;
-            if($count = 30)
-            {
-                $class++;
-            }
-            $student->gender = $item[1];
-            $student->save();
         }
     }
 }

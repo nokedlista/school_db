@@ -14,7 +14,10 @@ return new class extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('class_id');
+
+            $table->unsignedInteger('class_id');
+            $table->foreign('class_id')->references('id')->on('school_classes');
+
             $table->string('gender');
             $table->timestamps();
         });
