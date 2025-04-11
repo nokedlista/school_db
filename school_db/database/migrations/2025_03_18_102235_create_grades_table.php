@@ -13,8 +13,13 @@ return new class extends Migration
     {
         Schema::create('grades', function (Blueprint $table) {
             $table->id();
+
             $table->unsignedBigInteger('subject_id');
+            $table->foreign('subject_id')->references('id')->on('subjects');
+
             $table->unsignedBigInteger('student_id');
+            $table->foreign('student_id')->references('id')->on('students');
+
             $table->string('grade');
             $table->timestamps();
         });

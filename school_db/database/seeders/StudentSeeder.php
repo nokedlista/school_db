@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\Student;
 use Illuminate\Database\Seeder;
 
-class BodieSeeder extends Seeder
+class StudentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
