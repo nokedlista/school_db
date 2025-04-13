@@ -14,7 +14,8 @@ class SchoolClassSeeder extends Seeder
      */
     public function run()
     {
-        $items = fopen("../seeder_txt/school_classes.txt", "r") or die("Unable to open file!");
+        echo "current user: " . get_current_user();
+        $items = fopen(getcwd(), 'r') or die('Unable to open file!');
         while (!feof($items)) {
             $schoolclass = new SchoolClass();
             $line = fgets($items);

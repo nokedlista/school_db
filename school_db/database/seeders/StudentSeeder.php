@@ -16,7 +16,7 @@ class StudentSeeder extends Seeder
      */
     public function run()
     {
-        $items = fopen("../seeder_txt/students.txt", "r") or die("Unable to open file!");
+        $items = fopen(getcwd(), 'r') or die('Unable to open file!');
         while (!feof($items)) {
             $line = fgets($items);
             $item = explode($line, ';');
