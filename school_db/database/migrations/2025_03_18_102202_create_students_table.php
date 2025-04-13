@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
 
-            $table->unsignedInteger('class_id');
+            $table->unsignedBigInteger('class_id');
             $table->foreign('class_id')->references('id')->on('school_classes');
 
             $table->string('gender');
