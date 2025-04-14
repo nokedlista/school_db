@@ -42,7 +42,7 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
-/* Logout form */
+/* Logout gomb */
 .logout button {
     background-color: #f44336;
     border: none;
@@ -97,8 +97,8 @@ h1 {
     color: #333;
 }
 
-/* Diákok listája */
-div {
+/* Diák lista tartó */
+.students-container {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
@@ -107,11 +107,11 @@ div {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Egyedi sorok */
+/* Sorok */
 .row {
     display: flex;
-    padding: 10px;
-    margin-bottom: 10px;
+    align-items: center;
+    padding: 8px 0;
     border-bottom: 1px solid #ddd;
 }
 
@@ -126,18 +126,19 @@ div {
 /* Oszlopok */
 .col {
     flex: 1;
-    padding: 5px;
     text-align: center;
+    padding: 4px 8px;
 }
 
 .col.id {
-    width: 10%;
+    flex: 0.3;
 }
 
+/* Jobbra igazított gombok */
 .right {
     display: flex;
+    gap: 8px;
     justify-content: flex-end;
-    flex: 1;
 }
 
 /* Linkek és gombok */
@@ -146,9 +147,9 @@ a {
 }
 
 button {
-    padding: 8px 15px;
+    padding: 6px 12px;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     background-color: #4CAF50;
     color: white;
     cursor: pointer;
@@ -164,16 +165,9 @@ button:disabled {
     cursor: not-allowed;
 }
 
-/* Formok */
-form {
-    display: inline-block;
-}
-
+/* Submit gomb külön szín */
 button[type="submit"] {
     background-color: #f44336;
-    padding: 8px 15px;
-    color: white;
-    border-radius: 5px;
 }
 
 button[type="submit"]:hover {
@@ -188,4 +182,48 @@ button[type="submit"]:hover {
     margin-bottom: 20px;
     border-radius: 5px;
     text-align: center;
+}
+
+/* Adatlap (pl. student, grade, class, subject) megjelenítése */
+.detail-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.detail-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #333;
+}
+
+.student_row,
+.detail-row {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.detail-row div {
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .detail-container {
+        padding: 15px 20px;
+    }
+
+    .student_row div,
+    .detail-row div {
+        font-size: 15px;
+    }
 }

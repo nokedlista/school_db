@@ -34,37 +34,61 @@ class Install extends Command
         $sql = "SELECT SCHEMA_NAME
         FROM INFORMATION_SCHEMA.SCHEMATA
         WHERE SCHEMA_NAME = 'school_db';";
-        if($conn->query($sql)->num_rows > 0)
-        {
+        if ($conn->query($sql)->num_rows > 0) {
             $this->info('Database already exists!');
             return;
         }
         $sql = "CREATE DATABASE IF NOT EXISTS school_db";
-        if ($conn->query($sql) === TRUE)
-        {
-            $path = $this->laravel->databasePath().DIRECTORY_SEPARATOR.'seeders';
-            $files = scandir($path, 1);
-            $filecount = count($files)-2;
-            array_splice($files, $filecount, 2);
-            $bar = $this->output->createProgressBar($filecount+1);
-            $this->info('Database created!');
+        if ($conn->query($sql) === TRUE) {
+            $path = $this->laravel->databasePath() . DIRECTORY_SEPARATOR . 'seeders';
+            $unordered_files = scandir($path, 1);
+            $filecount = count($unordered_files) - 2;
+            array_splice($unordered_files, $filecount, 2);
+            $i = 5;
+            foreach ($unordered_files as $temp) {
+                $file = substr($temp, 0, strlen($temp) - 4);
+                switch ($file) {
+                    case "DatabaseSeeder":
+                        $files[0] = $file;
+                        break;
+                    case "SubjectSeeder":
+                        $files[1] = $file;
+                        break;
+                    case "SchoolClassSeeder":
+                        $files[2] = $file;
+                        break;
+                    case "StudentSeeder":
+                        $files[3] = $file;
+                        break;
+                    case "GradeSeeder":
+                        $files[4] = $file;
+                        break;
+                    default:
+                        $files[$i] = $file;
+                        $i++;
+                }
+            }
+            ksort($files);
 
+            $totalSteps = count($files) + 2;
+            $bar = $this->output->createProgressBar($totalSteps);
             $bar->start();
+            $bar->advance();
+            $this->line(" Database created!");
+
             Artisan::call('migrate');
             $bar->advance();
-            $this->info(' Migration complete!');
+            $this->line(" Migration complete!");
 
-            foreach ($files as $fill) 
-            {
-                $file = substr($fill, 0, strlen($fill)-4);
+            foreach ($files as $file) {
+                Artisan::call('db:seed --class=' . $file);
                 $bar->advance();
-                Artisan::call('db:seed --class='.$file);
-                $this->info(' ' . $file.' complete!');
+                $this->line(" {$file} complete!");
             }
             $bar->finish();
             $this->info(' Install complete!');
 
             mysqli_close($conn);
-        } 
+        }
     }
 }

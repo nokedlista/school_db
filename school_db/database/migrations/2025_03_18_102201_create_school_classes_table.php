@@ -17,8 +17,6 @@ return new class extends Migration
             $table->string('school_year');
             $table->timestamps();
         });
-        echo "current user: " . get_current_user();
-        echo "script was executed under user: " . exec('whoami');
     }
 
     /**

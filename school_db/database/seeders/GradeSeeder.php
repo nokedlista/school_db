@@ -16,13 +16,14 @@ class GradeSeeder extends Seeder
      */
     public function run()
     {
+        $id = 0;
         for ($i = 0; $i < 100; $i++) {
-            $student = new Student();
+            $id++;
             for ($j = 0; $j < 10; $j++) {
                 $grade = new Grade();
-                $grade->student_id = $student[$j]->id;
+                $grade->student_id = $id;
                 $grade->grade = rand(1, 5);
-                $grade->subject_id = rand(0, 26);
+                $grade->subject_id = rand(1, 27);
                 $grade->save();
             }
         }

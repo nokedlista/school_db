@@ -22,9 +22,10 @@ class StudentSeeder extends Seeder
             $line = fgets($items);
             $item = explode(';', $line);
             $student = new Student();
-            $student->name = $line[0];
-            $student->class_id = rand(0, 34);
+            $student->name = $item[0];
+            $student->class_id = rand(1, 35);
             $student->gender = $item[1];
+            $student->save();
         }
     }
 
@@ -32,7 +33,7 @@ class StudentSeeder extends Seeder
     {
         $fullPath = getcwd();
         $arrayPath = explode($fullPath, '/');
-        array_splice($arrayPath, count($arrayPath)-1, 1);
+        array_splice($arrayPath, count($arrayPath) - 1, 1);
         return implode('/', $arrayPath);
     }
 }
