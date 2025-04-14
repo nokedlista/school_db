@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BasicRequest;
 use App\Models\Student;
+use Database\Traits\Path;
 
 class StudentController extends Controller
 {
+    use Path;
     /**
      * Display a listing of the resource.
      */

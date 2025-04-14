@@ -39,7 +39,7 @@ class Install extends Command
             $this->info('Database already exists!');
             return;
         }
-        $sql = "CREATE DATABASE IF NOT EXISTS laravel_cars";
+        $sql = "CREATE DATABASE IF NOT EXISTS school_db";
         if ($conn->query($sql) === TRUE)
         {
             $path = $this->laravel->databasePath().DIRECTORY_SEPARATOR.'seeders';
@@ -52,18 +52,17 @@ class Install extends Command
             $bar->start();
             Artisan::call('migrate');
             $bar->advance();
-            $this->info('Migration complete!');
+            $this->info(' Migration complete!');
 
             foreach ($files as $fill) 
             {
                 $file = substr($fill, 0, strlen($fill)-4);
-                Artisan::call('db:seed --class='.$file);
-
                 $bar->advance();
-                $this->info($file.' complete!');
+                Artisan::call('db:seed --class='.$file);
+                $this->info(' ' . $file.' complete!');
             }
             $bar->finish();
-            $this->info('Install complete!');
+            $this->info(' Install complete!');
 
             mysqli_close($conn);
         } 

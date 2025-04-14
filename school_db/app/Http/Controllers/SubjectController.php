@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Subject;
 use App\Http\Requests\BasicRequest;
+use Database\Traits\Path;
 
 class SubjectController extends Controller
 {
+    use Path;
     /**
      * Display a listing of the resource.
      */
