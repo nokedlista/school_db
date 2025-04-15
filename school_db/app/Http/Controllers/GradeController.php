@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Grade;
 use App\Models\Subject;
+use App\Models\Student;
 use App\Http\Requests\BasicRequest;
 
 class GradeController extends Controller
@@ -13,8 +14,10 @@ class GradeController extends Controller
      */
     public function index()
     {
+        $subjects = Subject::all();
         $grades = Grade::all();
-        return view('grades.index', compact('grades'));
+        $students = Student::all();
+        return view('grades.index', compact('grades', 'subjects', 'students'));
     }
 
     /**
@@ -44,6 +47,19 @@ class GradeController extends Controller
     {
         $grade = Grade::find($id);
         return view('grades.show', compact('grade'));
+    }
+
+    public function showOne(string $id)
+    {
+        if($id == "")
+        {
+            return view('grades.index', compact('grades', 'subjects', 'students'));
+        }
+        $selectedStudentID = $id;
+        $students = Student::all();
+        $grades = Grades::all();
+        $subjects = Subjects::all();
+        return view('grades.showOne', compact('grades', 'selectedStudentID', 'students', 'subjects'));
     }
 
     /**
