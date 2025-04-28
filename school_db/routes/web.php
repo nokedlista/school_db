@@ -25,13 +25,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/school_classes/{id}/edit', [SchoolClassController::class, 'edit'])->name('school_classes.edit');
     Route::delete('/school_classes/{id}', [SchoolClassController::class, 'destroy'])->name('school_classes.destroy');
 
-    Route::patch('/students/{id}', [GradeController::class, 'update'])->name('students.update');
-    Route::get('/students/{id}/edit', [GradeController::class, 'edit'])->name('students.edit');
-    Route::delete('/students/{id}', [GradeController::class, 'destroy'])->name('students.destroy');
+    Route::patch('/students/{id}', [StudentController::class, 'update'])->name('students.update');
+    Route::get('/students/{id}/edit', [StudentController::class, 'edit'])->name('students.edit');
+    Route::delete('/students/{id}', [StudentController::class, 'destroy'])->name('students.destroy');
 
-    Route::patch('/grades/{id}', [StudentController::class, 'update'])->name('grades.update');
-    Route::get('/grades/{id}/edit', [StudentController::class, 'edit'])->name('grades.edit');
-    Route::delete('/grades/{id}', [StudentController::class, 'destroy'])->name('grades.destroy');
+    Route::patch('/grades/{id}', [GradeController::class, 'update'])->name('grades.update');
+    Route::get('/grades/{id}/edit', [GradeController::class, 'edit'])->name('grades.edit');
+    Route::delete('/grades/{id}', [GradeController::class, 'destroy'])->name('grades.destroy');
 
     Route::patch('/subjects/{id}', [SubjectController::class, 'update'])->name('subjects.update');
     Route::get('/subjects/{id}/edit', [SubjectController::class, 'edit'])->name('subjects.edit');

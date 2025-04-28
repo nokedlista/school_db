@@ -22,11 +22,12 @@ class BasicRequest extends FormRequest
     public function rules(): array
     {
         if ($this->method() === 'PATCH') {
-            return ['name' => 'nullable|min:3|max:255'];
+            return ['name' => 'nullable|min:2|max:255'];
         }
         return [
-            'name' => 'required|min:3|max:255',
-            'grade' => 'required|min:1|max:1'
+            'name' => 'required|min:2|max:255',
+            'grade' => 'required|min:1|max:1',
+            'subject' => 'required|min:3|max:255'
         ];
     }
 
@@ -34,11 +35,14 @@ class BasicRequest extends FormRequest
     {
         return [
             'name.required' => 'A név kötelező mező!',
-            'name.min' => 'A név legalább 3 karakter legyen!',
+            'name.min' => 'A név legalább 2 karakter legyen!',
             'name.max' => 'A név legfeljebb 255 karakter legyen!',
             'grade.required' => 'A jegy kötelező mező!',
             'grade.max' => 'A jegy legfeljebb 255 karakter legyen!',
             'grade.min' => 'A jegy legalább 3 karakter legyen!',
+            'subject.required' => 'A tantárgy kötelező!',
+            'subject.min' => 'Legalább 3 karakter legyen!',
+            'subject.max' => 'Legfeljebb 255 karakter legyen!'
         ];
     }
 }

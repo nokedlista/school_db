@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>Diákok</h1>
-
+<a href="{{ route('students.create') }}" title="Új">Diák hozzáadása</a>
 <div class="row even">
 		<div class="col">ID</div>
 		<div class="col">Neve</div>

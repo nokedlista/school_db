@@ -13,7 +13,7 @@
             <input type="text" id="subject" name="subject">
         </fieldset>
         <button type="submit">Ment</button>
-        <a href="{{ route('subjects.index') }}">Mégse</a>
+        <button><a href="{{ route('subjects.index') }}">Mégse</a></button>
     </form>
 </div>
 @endsection
