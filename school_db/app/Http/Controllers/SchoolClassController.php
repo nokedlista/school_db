@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Students;
 use App\Models\SchoolClass;
 use App\Http\Requests\BasicRequest;
+use App\Models\Student;
 
 class SchoolClassController extends Controller
 {
@@ -40,8 +42,10 @@ class SchoolClassController extends Controller
      */
     public function show(string $id)
     {
-        $school_class = SchoolClass::find($id);
-        return view('school_classes.show', compact('school_class'));
+        $class_name = SchoolClass::find($id)->name;
+        $call_id = $id;
+        $students = Student::all();
+        return view('school_classes.show', compact('students', 'call_id', 'class_name'));
     }
 
     /**

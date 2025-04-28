@@ -70,8 +70,14 @@ class StudentController extends Controller
     public function destroy(string $id)
     {
         $student = Student::find($id);
+
+        if (!$student) {
+            return redirect()->route('students.index')->with('error', 'A diák nem található.');
+        }
+
         $student->delete();
 
-        return redirect()->route('students.index')->with('success', "Sikeresen törölve");
+        return redirect()->route('students.index')->with('success', 'Sikeresen törölve.');
     }
+
 }

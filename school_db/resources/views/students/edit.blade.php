@@ -18,7 +18,7 @@
                 <input type="text" id="gender" name="gender" required value="{{ old('gender', $student->gender) }}">
             </fieldset>
             <button type="submit">Ment</button>
-            <a href="{{ route('students.index') }}">Mégse</a>
+            <button><a href="{{ route('students.index') }}">Mégse</a></button>
         </form>
     </div>
 @endsection
