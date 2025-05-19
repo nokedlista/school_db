@@ -9,8 +9,8 @@
     <form action="{{route('subjects.store')}}" method="post">
         @csrf
         <fieldset>
-            <label for="subject">Tantárgy</label>
-            <input type="text" id="subject" name="subject">
+            <label for="name">Tantárgy</label>
+            <input type="text" id="name" name="name">
         </fieldset>
         <button type="submit">Ment</button>
         <button><a href="{{ route('subjects.index') }}">Mégse</a></button>

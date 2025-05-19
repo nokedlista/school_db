@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Grade;
 use App\Models\Subject;
 use App\Models\Student;
-use App\Http\Requests\BasicRequest;
+use App\Http\Requests\GradeRequest;
 
 class GradeController extends Controller
 {
@@ -32,7 +32,7 @@ class GradeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(BasicRequest $request)
+    public function store(GradeRequest $request)
     {
         $grade = new Grade();
         $grade->create($request->all());
@@ -57,8 +57,8 @@ class GradeController extends Controller
         }
         $selectedStudentID = $id;
         $students = Student::all();
-        $grades = Grades::all();
-        $subjects = Subjects::all();
+        $grades = Grade::all();
+        $subjects = Subject::all();
         return view('grades.showOne', compact('grades', 'selectedStudentID', 'students', 'subjects'));
     }
 
@@ -74,7 +74,7 @@ class GradeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(BasicRequest $request, string $id)
+    public function update(GradeRequest $request, string $id)
     {
         $grade = Grade::findOrFail($id);
         $grade->update($request->all());

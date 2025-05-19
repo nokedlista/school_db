@@ -15,6 +15,7 @@
 		</select>
 		<button type='submit' name='submitButton'>Mutat</button>
 	</form> -->
+	<a href="{{ route('grades.create') }}" title="Új">Jegy hozzáadása</a>
 	<div class="row even">
 		<div class="col">Tantárgy</div>
 		<div class="col">Tanuló</div>
